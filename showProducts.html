@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Slideshow Plugin">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Slideshow Plugin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="utils/swal2/swal2/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="utils/swal2/swal2/dist/sweetalert2.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="product.html">Product</a>
+                </li>
+                <li>
+                    <a href="blog.html">Ablog</a>
+                </li>
+                <li>
+                    <a href="">About Us</a>
+                </li>
+                <li class="basket">
+                  <a href="basket.html"><i class="fa fa-shopping-cart"></i></a>
+              </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ShowProducts -->
+    <section class="showProducts">
+      <div class="side-left">
+        <img id="show-image" class="show-product-image" src="https://holosen.net/wp-content/uploads/2021/10/pa_01.jpg" alt="">
+      </div>
+      <div class="side-rigth">
+        <h2 id="show-title" class="show-product-title"></h2>
+        <h3 class="show-product-colorTitle">Color</h3>
+        <a>
+          <div id="color-holder"></div>
+        </a>
+        <br>
+        <h3 class="show-product-sizeTitle">Size</h3>
+        <a>
+          <div id="size-holder"></div>
+        </a>
+        <br>
+        <br>
+        <p id="show-description" class="show-product-description"></p>
+        <br>
+        <br>
+        <br>
+        <a class="btn" onclick="addToBasket()">AddTobasket</a>
+      </div>
+    </section>
+
+    <section style="margin-bottom: -4px;" class="section-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207344.07543249425!2d51.18284256332215!3d35.70774021834952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00491ff3dcd9%3A0xf0b3697c567024bc!2sTehran%2C%20Tehran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1699278771574!5m2!1sen!2s" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  
+  <footer>
+    <div class="footer-1">
+      <h4 style="margin-bottom: 8px;">About Us</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum culpa, est quis debitis qui enim quasi ipsa saepe ducimus autem.</p>
+    </div>
+  
+    <div class="footer-2">
+      <h4 style="margin-bottom: 8px;">social</h4>
+      <ul>
+        <li>
+          <a><i class="fab fa-instagram fa-2x"></i></a>
+        </li>
+        <li>
+          <a><i class="fab fa-twitter fa-2x"></i></a>
+        </li>
+        <li>
+          <a><i class="fab fa-linkedin fa-2x"></i></a>
+        </li>
+        <li>
+          <a><i class="fab fa-youtube fa-2x"></i></a>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="footer-3">
+      <h4 style="margin-bottom: 8px;">Links</h4>
+      <ul>
+        <li>
+          <a>Home</a>
+        </li>
+        <li>
+          <a>Product</a>
+        </li>
+        <li>
+          <a>Ablog</a>
+        </li>
+        <li>
+          <a>AboutUs</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <div>
+    <h3 class="footer-4" style="margin-top: -23px;">Designed & Develop by <span style="color: orangered;">Holosen</span></h3>
+  </div>
+
+    <!-- Template -->
+    <div id="template">
+      <!-- Color -->
+      <div id="color-item-template">
+        <div class="show-product-color" title="__TITLE__" onclick="changecolor(this,__ID__,'__TITLE__','__HEX__')" style="background-color: #__HEX__;"></div>
+      </div>
+      <!-- Size-->
+      <div id="size-item-template">
+        <div class="show-product-size" onclick="changeSize(this,__ID__,'__TITLE__')">__TITLE__</div>
+      </div>
+    </div>
+  
+    <!-- Utils -->
+    <script src="utils/readId.js"></script>
+
+  <!-- API -->
+  <script src="Api/ApiAddress.js"></script>
+  <script src="Api/BaseApi.js"></script>
+
+  <!-- Db -->
+  <script src="models/Basket.js"></script>
+  <script src="Db/BasketDb.js"></script>
+
+  <!-- Control -->
+  <script src="Api/ProductApi.js"></script>
+  <script src="control/ProductCtr.js"></script>
+
+  <!-- Main -->
+  <script src="pages/ShowProduct.js"></script>
+
+</body>
+
+</html>
